@@ -8,20 +8,20 @@
 <form>
 <div class="mb-3">
   <label for="exampleInputEmail1" class="form-label" >Account No</label>
-  <input type="text" [value]="uname"(change)="getusername($event)" class="form-control" id="acn" aria-describedby="emailHelp">
+  <input type="text" [(ngModel)]="accn"  name="accn" class="form-control" id="acn" aria-describedby="emailHelp">
   <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  {{aim}}
+  
 </div>
 <div class="mb-3">
   <label for="exampleInputPassword1" class="form-label" >Password</label>
-  <input type="password" (change)="getpassword($event)" class="form-control" id="psw">
+  <input type="password" [(ngModel)]="passw" name="passw" class="form-control" id="psw">
 </div>
 <div class="mb-3 form-check">
   <input type="checkbox" class="form-check-input" id="exampleCheck1">
   <label class="form-check-label" for="exampleCheck1">Check me out</label>
 </div>
 <button type="button" class="btn btn-primary" (click)="login()">Submit</button>
-<a href="http://localhost:4200/register">Registration</a>
+<a href="register">Registration</a>
 </form>
 </div>
 </div>
