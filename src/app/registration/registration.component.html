@@ -5,31 +5,34 @@
         <div class="col-4"></div>
     </div>
     <div>
-    <form>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label" >Username </label>
-      <input type="text"  class="form-control" id="acn" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label" >Account NUmber </label>
-        <input type="text"  class="form-control" id="acn" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <form [formGroup]="registerform" (ngSubmit)="register()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" >Username </label>
+        <input type="text" formControlName="uname" class="form-control" id="acn" aria-describedby="emailHelp">
+        <div *ngIf="this.registerform.get('uname')?.touched&&this.registerform.get('uname')?.errors" class="form-text erorr">Invalid Username</div>
+        
         
       </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label" >Password</label>
-      <input type="password"  class="form-control" id="psw">
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="button" class="btn btn-primary" >Submit</button>
-    
+      <div class="mb-3">
+          <label for="exampleInputEmail" class="form-label" >Account NUmber </label>
+          <input type="text"  name="accno" formControlName="accno" class="form-control" id="acn" aria-describedby="emailHelp">
+          <div *ngIf="this.registerform.get('accno')?.touched&&this.registerform.get('accno')?.errors" class="form-text erorr">Invalid Accountnumber</div>
+          
+        </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Password</label>
+        <input type="password" formControlName="pssw" name="pssw"  class="form-control" id="psw">
+        <div *ngIf="this.registerform.get('pssw')?.touched && this.registerform.get('pssw')?.errors" class="form-text erorr">Invalid password</div>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary"  >Submit</button>
+      <a routerLink="">Log in</a>
     </form>
+ 
     
-</div>
-    
+
+
     

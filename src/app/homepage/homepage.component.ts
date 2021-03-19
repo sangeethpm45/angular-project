@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-homepage',
@@ -11,5 +12,5 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+//accno=this.register.login.
 }
