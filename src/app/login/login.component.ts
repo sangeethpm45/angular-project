@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit {
    
 accn="";
 passw="";
-// aim="sangeeth";
+aim="sangeeth";
+currentuser:any;
  
 loginform=this.fb.group({
 accn:['',[Validators.required,Validators.minLength(4),Validators.maxLength(4),Validators.pattern('[0-9]*')]],
@@ -35,21 +36,28 @@ passw:['',[Validators.required,Validators.pattern('[a-zA-Z 0-9]*')]]
 // }
 login(){
     
-    var acn = this.loginform.value.accn    
-    var psswrd =this.loginform.value.passw
-    let dataset=this.dataService.accountdetails;
-    //let data = Bank.getAccountdetails();
-    if (acn in dataset) {
-        if (psswrd == dataset[acn]["password"]) {
-            alert("Login Sucess")
-            this.route.navigateByUrl("home")
+//     var acn = this.loginform.value.accn    
+//     var psswrd =this.loginform.value.passw
+//     let dataset=this.dataService.accountdetails;
+//     //let data = Bank.getAccountdetails();
+//     if (acn in dataset) {
+//         if (psswrd == dataset[acn]["password"]) {
+//             alert("Login Sucess")
+//             this.route.navigateByUrl("home")
             
-        } else {
-            alert("inavlid");
-        }
-    } else {
-        alert("no user");
-    }
+//         } else {
+//             alert("inavlid");
+//         }
+//     } else {
+//         alert("no user");
+//     }
 
+// }
+var result=this.dataService.login(this.loginform.value.accn,this.loginform.value.passw)
+if(result){
+    this.route.navigateByUrl("home")
 }
+else{
+    this.route.navigateByUrl('')
 }
+}}

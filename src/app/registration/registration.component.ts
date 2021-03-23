@@ -13,6 +13,7 @@ uname="";
 accno="";
 pssw="";
 
+
 registerform=this.fb.group({
 uname:['',[Validators.required,Validators.pattern('[a-zA-Z]*')]],
 accno:['',[Validators.required,Validators.minLength(4),Validators.maxLength(4),Validators.pattern('[0-9]*')]],
