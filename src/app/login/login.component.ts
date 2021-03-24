@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 accn="";
 passw="";
 aim="sangeeth";
-currentuser:any;
+//currentuser:any;
  
 loginform=this.fb.group({
 accn:['',[Validators.required,Validators.minLength(4),Validators.maxLength(4),Validators.pattern('[0-9]*')]],

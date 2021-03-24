@@ -44,6 +44,26 @@ export class DataService {
     }
 };
 currentUser:any;
+//function to store data in local storage
+saveDetails(){
+  localStorage.setItem("accountdetails",JSON.stringify(this.accountdetails))
+  if(this.currentUser){
+    localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
+  }
+}
+//----end--------
+
+//function to get data from local storage
+getDetails(){
+  if(localStorage.getItem('accountdetails')){
+    this.accountdetails=JSON.parse(localStorage.getItem("accountdetails")||'')
+  }
+  if(localStorage.getItem("currentUser")){
+    this.currentUser=JSON.parse(localStorage.getItem("currentUser")||'')
+
+  }
+}
+//-------end----
 
 register(accno:any,name:any,password:any){
 if (accno in this.accountdetails){
@@ -59,6 +79,7 @@ else{
     password
   }
   alert("sucess");
+  this.saveDetails()
   console.log(this.accountdetails);
   return true
 }
@@ -70,6 +91,8 @@ login(accn:any,passw:any){
     if (passw == this.accountdetails[accn]["password"]) {
         alert("Login Sucess")
       this.currentUser=this.accountdetails[accn]['name']
+
+      this.saveDetails()
         return true
         
     } else {
@@ -84,12 +107,14 @@ login(accn:any,passw:any){
 
 deposit(accn:any,pwd:any,amt:any){
   var amd=parseInt(amt)
+  this.getDetails()
   if (accn in this.accountdetails) {
-    if (pwd == this.accountdetails[accn]["password"]) {
+    var usr=this.accountdetails[accn]["name"]
+    if (pwd == this.accountdetails[accn]["password"]&&usr==this.currentUser) {
         
       this.accountdetails[accn]['balance']+=amd
-      alert("amount credite successfully new balance"+this.accountdetails[accn]['balance'])  
-        
+      alert("amount credited successfully new balance"+this.accountdetails[accn]['balance'])  
+        this.saveDetails()
     } else {
         alert("inavlid");
         
@@ -102,14 +127,17 @@ deposit(accn:any,pwd:any,amt:any){
 
 withdraw(accn:any,pass:any,amt:any){
   var amd=parseInt(amt)
+  var usr=this.accountdetails[accn]["name"]
+  this.getDetails()
   if (accn in this.accountdetails) {
-    if (pass == this.accountdetails[accn]["password"]) {
+    if (pass == this.accountdetails[accn]["password"]&&usr==this.currentUser) {
         if(amt>this.accountdetails[accn]["balance"]){
           alert("insufficient balence")
         }
         else{
           this.accountdetails[accn]['balance']-=amd
-          alert("amount credited successfully new balance :"+this.accountdetails[accn]['balance'])  
+          alert("amount credited successfully new balance :"+this.accountdetails[accn]['balance'])
+          this.saveDetails()  
         }
       
         
@@ -123,5 +151,5 @@ withdraw(accn:any,pass:any,amt:any){
 }
 }
 
-  constructor() { }
+  constructor() { this.getDetails()}
 }
