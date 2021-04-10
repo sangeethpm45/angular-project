@@ -26,15 +26,23 @@ pssw:['',[Validators.required,Validators.pattern('[a-zA-Z 0-9]*')]]
   }
 register(){
   
-  if (this.registerform.valid){   
-    var result=this.dataservice.register(this.registerform.value.accno,this.registerform.value.uname,this.registerform.value.pssw)
-    alert("registration sucess")
+  if (this.registerform.valid){  
+
+    this.dataservice.register(this.registerform.value.accno,this.registerform.value.uname,this.registerform.value.pssw).
+    subscribe((result)=>{
     if(result){
+      alert("registration sucess")
       this.router.navigateByUrl("")
+    }},(result)=>{
+
+        alert(result.error.message
+        )
     }
-    else{
-      alert("not ")
+
+    )
+
+    
     }
-  }
-}
-}
+    
+  }}
+
