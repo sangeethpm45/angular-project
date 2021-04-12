@@ -1,28 +1,32 @@
 <div class="container">
 <div class="row">
-    <div class="col-4 "></div>
-    <div class="col-4 "><h1 style="color: black;">SBI</h1></div>
-    <div class="col-4 "></div>
+    <div class=" text-light cntr"> <h1> SBI</h1> 
+      <div class="main">
+  
+        <form [formGroup]="loginform">
+        <div class="mb-3">
+          
+          <input type="text" formControlName="accn"  name="accn" class="form-control round" id="acn" aria-describedby="emailHelp" placeholder="Account Number">
+          <div *ngIf="this.loginform.get('accn')?.touched&&this.loginform.get('accn')?.errors" class="form-text">invalid accoutnumber</div>
+        </div>
+        <div class="mb-3">
+          
+          <input type="password" formControlName="passw" name="passw" class="form-control round" id="psw" placeholder="Password">
+          <div *ngIf="this.loginform.get('passw')?.touched&&this.loginform.get('passw')?.errors" class="form-text">invalid password</div>
+        </div>
+        
+        <div class="center-button">
+        <button type="button " class="signup bg-primary round-button" (click)="login()">Submit</button>
+        </div>
+        <div class="signup">
+          <a routerLink="register" class="bg-primary signup round-button" >Create an Account</a>
+        </div>
+        
+        
+        </form>
+        </div>
+    </div>
+    
 </div>
-<div>
-<form [formGroup]="loginform">
-<div class="mb-3">
-  <label for="exampleInputEmail1" class="form-label" >Account No</label>
-  <input type="text" formControlName="accn"  name="accn" class="form-control " id="acn" aria-describedby="emailHelp">
-  <div *ngIf="this.loginform.get('accn')?.touched&&this.loginform.get('accn')?.errors" class="form-text">invalid accoutnumber</div>
-</div>
-<div class="mb-3">
-  <label for="exampleInputPassword1" class="form-label" >Password</label>
-  <input type="password" formControlName="passw" name="passw" class="form-control" id="psw">
-  <div *ngIf="this.loginform.get('passw')?.touched&&this.loginform.get('passw')?.errors" class="form-text">invalid password</div>
-</div>
-<div class="mb-3 form-check">
-  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-</div>
-<button type="button" class="btn btn-primary" (click)="login()">Submit</button>
-<a routerLink="register">Registration</a>
 
-</form>
-</div>
 </div>

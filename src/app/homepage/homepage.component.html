@@ -1,11 +1,8 @@
 <div class="container">
-<!-- 
-welcome {{accno}} -->
-  
-    <div class="row" >
-        <div class="col-4"></div>
-        <div class="col-4">
-            <h1>welcome  {{name}}</h1>
+    <div class="row cntr" >
+      <h1>welcome  {{name}}</h1>
+      <div class="main">
+            
         <form [formGroup]="depositform" (ngSubmit)="deposit()">
             <div class="mb-3">
               <label for="kk" class="form-label"
@@ -14,7 +11,7 @@ welcome {{accno}} -->
               
               <input
                 type="text"
-                class="form-control"
+                class="form-control round"
                 id="accn"
                 aria-describedby="emailHelp"
                 formControlName="accn"
@@ -26,7 +23,7 @@ welcome {{accno}} -->
               <label for="exampleInputPassword1" class="form-label">Password</label>
               <input
                 type="password"
-                class="form-control"
+                class="form-control round"
                 id="pssw"
                 formControlName="pass"
                 name="psw"
@@ -39,39 +36,23 @@ welcome {{accno}} -->
               >
               <input
                 type="text"
-                class="form-control"
+                class="form-control round"
                 id="amdd"
                 aria-describedby="emailHelp"
                 formControlName="amount"
               />
               <div *ngIf="this.depositform.get('amount')?.touched&&this.depositform.get('amount')?.errors" class="form-text">invalid amount</div>
             </div>
-            <!-- <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Account balence</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-              />
-            </div> -->
-      
-            <button type="submit" class="btn btn-primary" >Deposit</button>
+            <button type="submit" class="btn btn-primary round-button" >Deposit</button>
             
           </form>
-    </div>
         </div>
-        <div class="col-4"></div>
-        
+        </div>
 </div>
 
-<div class="container">
-  <!-- 
-  welcome {{accno}} -->
-    
-      <div class="row" >
-          <div class="col-4"></div>
-          <div class="col-4">
-              
+<div class="container gap">
+  <div class="row cntr">
+      <div class="main" >
           <form [formGroup]="withdrawform" (ngSubmit)="withdraw()">
               <div class="mb-3">
                 <label for="kk" class="form-label"
@@ -79,7 +60,7 @@ welcome {{accno}} -->
                 >
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control round"
                   id="accn"
                   aria-describedby="emailHelp"
                   formControlName="accn"
@@ -91,7 +72,7 @@ welcome {{accno}} -->
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input
                   type="password"
-                  class="form-control"
+                  class="form-control round"
                   id="pssw"
                   name="pass"
                   formControlName="pass"
@@ -104,28 +85,20 @@ welcome {{accno}} -->
                 >
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control round"
                   id="amdd"
                   name="amd"
                   aria-describedby="emailHelp"
                   formControlName="amount"
                 />
                 <div *ngIf="this.withdrawform.get('amount')?.touched&&this.withdrawform.get('amount')?.errors" class="form-text">invalid amount</div>
-              </div>
-              <!-- <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Account balence</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                />
-              </div> -->
-        
-              
-              <button type="submit" class="btn btn-primary" >Withdrawel</button>
+              </div>   
+              <button type="submit " class="btn btn-primary round-button" >Withdraw</button>
             </form>
-      </div>
+      
           </div>
-          <div class="col-4"></div>
-          
+        </div>
+        <span>
+          ..
+        </span>
   </div>

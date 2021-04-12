@@ -39,7 +39,7 @@ deposit(){
     if(result){
       alert(result.message)
     }
-  },(result)=>{
+  },(result:any)=>{
     alert(result.erorr.message)
   })
   }
@@ -50,7 +50,7 @@ withdraw(){
   this.un.withdraw(this.withdrawform.value.accn,this.withdrawform.value.pass,this.withdrawform.value.amount).subscribe((result:any)=>{
     alert(result.message)
   },(result)=>{
-    alert(result.erorr.message)
+    alert(result.error.message)
   })
 }
 }
