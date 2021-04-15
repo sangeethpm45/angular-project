@@ -8,12 +8,14 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteconfirmationComponent } from './deleteconfirmation/deleteconfirmation.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    HomepageComponent
+    HomepageComponent,
+    DeleteconfirmationComponent
   ],
   imports: [
     BrowserModule,

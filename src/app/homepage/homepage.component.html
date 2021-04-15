@@ -1,104 +1,180 @@
 <div class="container">
-    <div class="row cntr" >
-      <h1>welcome  {{name}}</h1>
-      <div class="main">
-            
-        <form [formGroup]="depositform" (ngSubmit)="deposit()">
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SBI</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+          </ul>
+          <span class="navbar-text"> Logged as:{{ this.name }} </span>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="row text-center">
+    <div class="main">
+      <h3>Deposit</h3>
+      <hr />
+      <form [formGroup]="depositform" (ngSubmit)="deposit()">
+        <div class="mb-3">
+          <label for="kk" class="form-label">Account Number</label>
+
+          <input
+            type="text"
+            class="form-control round"
+            id="accn"
+            aria-describedby="emailHelp"
+            formControlName="accn"
+            name="acn"
+          />
+          <div
+            *ngIf="
+              this.depositform.get('accn')?.touched &&
+              this.depositform.get('accn')?.errors
+            "
+            class="form-text"
+          >
+            invalid accoutnumber
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control round"
+            id="pssw"
+            formControlName="pass"
+            name="psw"
+          />
+          <div
+            *ngIf="
+              this.depositform.get('pass')?.touched &&
+              this.depositform.get('pass')?.errors
+            "
+            class="form-text"
+          >
+            invalid password
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="amt" class="form-label">Amount </label>
+          <input
+            type="text"
+            class="form-control round"
+            id="amdd"
+            aria-describedby="emailHelp"
+            formControlName="amount"
+          />
+          <div
+            *ngIf="
+              this.depositform.get('amount')?.touched &&
+              this.depositform.get('amount')?.errors
+            "
+            class="form-text"
+          >
+            invalid amount
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary round-button">
+          Deposit
+        </button>
+      </form>
+
+      <div class="row text-center">
+        <div class="gap">
+          <h3>Withdraw</h3>
+          <hr />
+          <form [formGroup]="withdrawform" (ngSubmit)="withdraw()">
             <div class="mb-3">
-              <label for="kk" class="form-label"
-                >Account Number</label
-              >
-              
+              <label for="kk" class="form-label">Account Number</label>
               <input
                 type="text"
                 class="form-control round"
                 id="accn"
                 aria-describedby="emailHelp"
                 formControlName="accn"
-                name="acn"
+                name="accn"
               />
-              <div *ngIf="this.depositform.get('accn')?.touched&&this.depositform.get('accn')?.errors" class="form-text">invalid accoutnumber</div>
+              <div
+                *ngIf="
+                  this.withdrawform.get('accn')?.touched &&
+                  this.withdrawform.get('accn')?.errors
+                "
+                class="form-text"
+              >
+                invalid account number
+              </div>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+              >
               <input
                 type="password"
                 class="form-control round"
                 id="pssw"
+                name="pass"
                 formControlName="pass"
-                name="psw"
               />
-              <div *ngIf="this.depositform.get('pass')?.touched&&this.depositform.get('pass')?.errors" class="form-text">invalid password</div>
+              <div
+                *ngIf="
+                  this.withdrawform.get('pass')?.touched &&
+                  this.withdrawform.get('pass')?.errors
+                "
+                class="form-text"
+              >
+                invalid password
+              </div>
             </div>
             <div class="mb-3">
-              <label for="amt" class="form-label"
-                >Amount </label
-              >
+              <label for="amt" class="form-label">Amount </label>
               <input
                 type="text"
                 class="form-control round"
                 id="amdd"
+                name="amd"
                 aria-describedby="emailHelp"
                 formControlName="amount"
               />
-              <div *ngIf="this.depositform.get('amount')?.touched&&this.depositform.get('amount')?.errors" class="form-text">invalid amount</div>
+              <div
+                *ngIf="
+                  this.withdrawform.get('amount')?.touched &&
+                  this.withdrawform.get('amount')?.errors
+                "
+                class="form-text"
+              >
+                invalid amount
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary round-button" >Deposit</button>
-            
+            <button type="submit " class="btn btn-primary round-button">
+              Withdraw
+            </button>
           </form>
         </div>
+      </div>
+      <span>
+        <div>
+          <button class="btn btn-primary round-button" id="dlt" (click)="delete()">Delete</button>
         </div>
-</div>
-
-<div class="container gap">
-  <div class="row cntr">
-      <div class="main" >
-          <form [formGroup]="withdrawform" (ngSubmit)="withdraw()">
-              <div class="mb-3">
-                <label for="kk" class="form-label"
-                  >Account Number</label
-                >
-                <input
-                  type="text"
-                  class="form-control round"
-                  id="accn"
-                  aria-describedby="emailHelp"
-                  formControlName="accn"
-                  name="accn"
-                />
-                <div *ngIf="this.withdrawform.get('accn')?.touched&&this.withdrawform.get('accn')?.errors" class="form-text">invalid account number</div>
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input
-                  type="password"
-                  class="form-control round"
-                  id="pssw"
-                  name="pass"
-                  formControlName="pass"
-                />
-                <div *ngIf="this.withdrawform.get('pass')?.touched&&this.withdrawform.get('pass')?.errors" class="form-text">invalid password</div>
-              </div>
-              <div class="mb-3">
-                <label for="amt" class="form-label"
-                  >Amount </label
-                >
-                <input
-                  type="text"
-                  class="form-control round"
-                  id="amdd"
-                  name="amd"
-                  aria-describedby="emailHelp"
-                  formControlName="amount"
-                />
-                <div *ngIf="this.withdrawform.get('amount')?.touched&&this.withdrawform.get('amount')?.errors" class="form-text">invalid amount</div>
-              </div>   
-              <button type="submit " class="btn btn-primary round-button" >Withdraw</button>
-            </form>
-      
-          </div>
+        <div>
+          <app-deleteconfirmation (ondelete)='item($event)' [item]='accno' [name1]='name'> </app-deleteconfirmation>
         </div>
-        <span>
-          ..
-        </span>
+      </span>
+    </div>
   </div>
+</div>

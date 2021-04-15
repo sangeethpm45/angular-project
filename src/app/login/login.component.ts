@@ -36,29 +36,10 @@ passw:['',[Validators.required,Validators.pattern('[a-zA-Z 0-9]*')]]
 // }
 login(){
   if(this.loginform.valid){
-
-  
-    
-//     var acn = this.loginform.value.accn    
-//     var psswrd =this.loginform.value.passw
-//     let dataset=this.dataService.accountdetails;
-//     //let data = Bank.getAccountdetails();
-//     if (acn in dataset) {
-//         if (psswrd == dataset[acn]["password"]) {
-//             alert("Login Sucess")
-//             this.route.navigateByUrl("home")
-            
-//         } else {
-//             alert("inavlid");
-//         }
-//     } else {
-//         alert("no user");
-//     }
-
-// }
-this.dataService.login(this.loginform.value.accn,this.loginform.value.passw).subscribe((result:any)=>{
+  this.dataService.login(this.loginform.value.accn,this.loginform.value.passw).subscribe((result:any)=>{
   if(result){
     localStorage.setItem("name",result.name)
+    localStorage.setItem("acno",result.acno)
     alert(result.message)
     this.route.navigateByUrl("home")
 }

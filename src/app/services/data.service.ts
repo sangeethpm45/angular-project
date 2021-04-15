@@ -101,6 +101,7 @@ withdraw(accn:any,pass:any,amd:any){
   }
   return this.http.post("http://localhost:3000/withdraw",data,options)
  }
+ 
 //-----------------------------------------------------------------------
   
 
