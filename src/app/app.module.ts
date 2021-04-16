@@ -9,20 +9,29 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteconfirmationComponent } from './deleteconfirmation/deleteconfirmation.component';
+import { HighlightDirective } from './highlight.directive';
+import { AnimationdemoComponent,} from './animationdemo/animationdemo.component';
+import { BrowserAnimationsModule,} from '@angular/platform-browser/animations'
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
     HomepageComponent,
-    DeleteconfirmationComponent
+    DeleteconfirmationComponent,
+    HighlightDirective,
+    AnimationdemoComponent,
+   
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {environment} from '../../environments/environment'
 const options={
 withCredentials:true
 }
@@ -45,7 +46,7 @@ register(accno:any,name:any,password:any){
     balance:0,
     password
   }
-return this.http.post('http://localhost:3000/register',data)
+return this.http.post(environment.Apiurl+"/register'",data)
 
 }
 
@@ -63,7 +64,7 @@ const data={
   accn,
   password:passw
 }
-return this.http.post("http://localhost:3000/login",data,options)
+return this.http.post(environment.Apiurl+"/login",data,options)
  }
  
 //---------------------------------------------------------------------
@@ -82,7 +83,7 @@ deposit(accn:any,pwd:any,amd:any){
     pwd,
     amt
   }
-  return this.http.post("http://localhost:3000/deposit",data,options)
+  return this.http.post(environment.Apiurl+"/deposit",data,options)
 }
 
 //-----------------------------------------------------------
@@ -99,7 +100,7 @@ withdraw(accn:any,pass:any,amd:any){
     pwd:pass,
     amt
   }
-  return this.http.post("http://localhost:3000/withdraw",data,options)
+  return this.http.post(environment.Apiurl+"/withdraw",data,options)
  }
  
 //-----------------------------------------------------------------------

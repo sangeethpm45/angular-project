@@ -26,7 +26,8 @@ export class HomepageComponent implements OnInit {
   })
   name: any
   accno: any
-
+  ldate:Date=new Date
+  trans=["1000 debted ","200 credited" ,"500 upi transaction "]
   constructor(private dp: FormBuilder, public un: DataService) {
     this.name = localStorage.getItem("name")
 
@@ -62,13 +63,17 @@ export class HomepageComponent implements OnInit {
     }
   }
 //---------------------------------------------------------------
-
+//--------------
 delete() {
   this.accno = localStorage.getItem('acno')
   this.name = localStorage.getItem("name")
 }
+//---------------
 
+//-----------------
 item($event:any){
+
 alert($event)
 }
+//-----------------
 }

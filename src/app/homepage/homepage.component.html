@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">SBI</a>
+        <a class="navbar-brand" appHighlight href="#">SBI</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -12,15 +12,18 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
+        
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" appHighlight aria-current="page" href="#">Home</a>
             </li>
           </ul>
-          <span class="navbar-text"> Logged as:{{ this.name }} </span>
+          <span class="navbar-text p-3"> {{ldate|date:"medium"}} </span>
+          <span class="navbar-text p-3"> Logged as:{{ this.name }} </span>
+          
         </div>
       </div>
     </nav>
@@ -175,6 +178,12 @@
           <app-deleteconfirmation (ondelete)='item($event)' [item]='accno' [name1]='name'> </app-deleteconfirmation>
         </div>
       </span>
+      <ul *ngFor="let items of trans">
+        <li>
+          {{items}}
+        </li>
+      </ul>
+      <app-animationdemo></app-animationdemo>
     </div>
   </div>
 </div>
